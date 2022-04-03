@@ -1,0 +1,221 @@
+﻿@using DA_Web.Models;
+@using PagedList.Mvc;
+@model PagedList.PagedList<DA_Web.ViewModel.TrangsucViewModel>
+
+
+@{
+    ViewBag.Title = "Hunter";
+    Layout = "~/Views/Shared/_layout_display.cshtml";
+}
+
+<!-- MAIN-CONTENT-SECTION START -->
+<section class="main-content-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <!-- BSTORE-BREADCRUMB START -->
+                <div class="bstore-breadcrumb">
+                    <a href="index.html">Trang chủ</a>
+                    <span><i class="fa fa-caret-right"></i></span>
+                    @foreach (var item in Model)
+                    {
+                        if (ViewData["SL"] == null)
+                        {
+                            <span>@item.TENLOAI</span>
+                            break;
+                        }
+                        else
+                        {
+                            <span class="cat-name">THƯƠNG HIỆU</span>
+                            break;
+                        }
+
+                    }
+
+                </div>
+                <!-- BSTORE-BREADCRUMB END -->
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+              
+            </div>
+
+            <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+                <div class="right-all-product">
+                    <!-- PRODUCT-CATEGORY-HEADER START -->
+                    <div class="product-category-header">
+                        <div class="category-header-image">
+
+                            @foreach (var item in Model)
+                            {
+                                <img src="~/Content/image/@item.HINHANH" alt="@item.TENLOAI" height="215" style="width: 100%" />
+                                break;
+                            }
+
+
+
+                        </div>
+                    </div>
+                    <!-- PRODUCT-CATEGORY-HEADER END -->
+                    <div class="product-category-title">
+                        <!-- PRODUCT-CATEGORY-TITLE START -->
+                        <h1>
+                            @if (ViewBag.thuonghieu=="all")
+                            {
+                            <span class="cat-name">TRANG SỨC SANG TRỌNG - CHẤT LƯỢNG</span>
+                            }
+                            else
+                            {
+                                   foreach (var item in Model)
+                                    {
+                               
+                                   
+                                            <span class="cat-name">@item.TENLOAI</span>
+                                            break;
+                                
+
+                                    }
+                            }
+                         
+                            <span class="count-product">Bao gồm <span style="color:red;font-weight:bold">@ViewBag.soluong </span>sản phẩm.</span>
+                        </h1>
+                        <!-- PRODUCT-CATEGORY-TITLE END -->
+                    </div>
+
+
+
+                    <div class="product-shooting-area">
+                        <div class="product-shooting-bar">
+                            <!-- SHOORT-BY START -->
+                            <div class="shoort-by">
+                                <label for="productShort">Sort by</label>
+                                <div class="short-select-option">
+                                    @{
+                                        string a = HttpContext.Current.Request.Url.AbsolutePath.ToString();
+                                    }
+
+                                    @Html.DropDownList("dropdownlist", (IEnumerable<SelectListItem>)ViewBag.listsort, "----Sắp xếp theo ----------", new { @id = "productShort", onchange = "document.location.href ='" + a + "?sort='+ this.options[this.selectedIndex].value;" })
+
+                                </div>
+                                <script language="javascript">
+
+                                    function ChangeList(obj) {
+                                        //var value = obj.value;
+                                        //var ip = document.getElementById("#hd_sort");
+                                        var url = HttpContext.Current.Request.Url.AbsolutePath.ToString();
+                                        // $("#hd_sort").val(value);
+                                        document.location.href = url + "?sort =" + this.options[this.selectedIndex].value;
+                                        document.location.href = a + '?sort =' + this.options[this.selectedIndex].value;
+                                    }
+
+
+                                </script>
+
+
+                            </div>
+                            <!-- SHOORT-BY END -->
+                            <!-- SHOW-PAGE START -->
+                            <!-- VIEW-SYSTEAM END -->
+                        </div>
+                        <!-- PRODUCT-SHOOTING-RESULT START -->
+                        <!-- PRODUCT-SHOOTING-RESULT END -->
+                    </div>
+                </div>
+                <!-- ALL GATEGORY-PRODUCT START -->
+
+
+
+                <div class="all-gategory-product">
+                    <div class="row">
+
+
+                        <ul class="gategory-product">
+
+                            <!-- SINGLE ITEM START -->
+                            @{
+                                int i = 0;
+                            }
+                            @foreach (var item in Model)
+                            {
+                                i++;
+                                <li class="gategory-product-list col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                                    <div class="single-product-item">
+                                        <div class="product-image">
+                                            <a href="@Url.Action("ChiTietSanPham", "Display", new { id = item.ID_SANPHAM })"><img src="~/Content/image/@item.ANHBIA" alt="@item.TEN_SANPHAM" class="thaydoi" style="height: 166px" /></a>
+                                            <a href="@Url.Action("ChiTietSanPham", "Display", new { id = item.ID_SANPHAM })" class="new-mark-box">new</a>
+                                            <div class="overlay-content">
+                                                <ul>
+                                                    <li><a href="#" title="Quick view"><i class="fa fa-search"></i></a></li>
+                                                    <li><a href="#" title="Quick view"><i class="fa fa-shopping-cart"></i></a></li>
+                                                    <li><a href="#" title="Quick view"><i class="fa fa-retweet"></i></a></li>
+                                                    <li><a href="#" title="Quick view"><i class="fa fa-heart-o"></i></a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="product-info">
+                                            <div class="customar-comments-box">
+                                                <div class="rating-box">
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star-half-empty"></i>
+                                                </div>
+                                                <div class="review-box">
+                                                    <span>1 Review(s)</span>
+                                                </div>
+                                            </div>
+                                            <div style="height:40px">
+                                                <a href="@Url.Action("ChiTietSanPham", "Display", new { id = item.ID_SANPHAM })">@item.TEN_SANPHAM</a>
+                                            </div>
+
+                                            <div class="price-box">
+                                                <span class="price">@string.Format("{0:0,000}", item.DONGIA) VNĐ</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            }
+
+
+                            <!-- SINGLE ITEM END -->
+
+
+                        </ul>
+
+                    </div>
+                </div>
+                <div class="product-shooting-result product-shooting-result-border">
+                    <form action="#">
+                        <div class="btn compare-button">
+                            Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount
+                        </div>
+                    </form>
+                    <div class="showing-item">
+                        <span>@i sản phẩm đang được hiển thị</span>
+                    </div>
+                    <div class="showing-next-prev">
+
+                        <div class="phantrang">
+                            @{
+                                string s = Request.QueryString["sort"];
+
+                            }
+                            @Html.PagedListPager(Model, page => Url.Action("Hunter", new { sort = s, page = page }))
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <!-- ALL GATEGORY-PRODUCT END -->
+                <!-- PRODUCT-SHOOTING-RESULT START -->
+                <!-- PRODUCT-SHOOTING-RESULT END -->
+            </div>
+
+
+        </div>
+    </div>
+</section>
+<!-- MAIN-CONTENT-SECTION END -->

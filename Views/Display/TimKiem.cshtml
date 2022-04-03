@@ -1,0 +1,173 @@
+﻿@using DA_Web.Models;
+@using PagedList.Mvc;
+@model PagedList.PagedList<DA_Web.ViewModel.TrangsucViewModel>
+
+
+@{
+    ViewBag.Title = "TimKiem";
+    Layout = "~/Views/Shared/_layout_display.cshtml";
+}
+
+<!-- MAIN-CONTENT-SECTION START -->
+<section class="main-content-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <!-- BSTORE-BREADCRUMB START -->
+                <div class="bstore-breadcrumb">
+                    <a href="index.html">HOME</a>
+                    <span><i class="fa fa-caret-right"></i></span>
+                  
+                            <span>Tìm kiếm</span>
+                         
+
+                </div>
+                <!-- BSTORE-BREADCRUMB END -->
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                <!-- PRODUCT-LEFT-SIDEBAR START -->
+             
+                <!-- PRODUCT-LEFT-SIDEBAR END -->
+                <!-- SINGLE SIDEBAR TAG START -->
+                <div class="product-left-sidebar">
+                    <h2 class="left-title">Tags </h2>
+                    <div class="category-tag">
+                        <a href="#">Nhẫn nữ</a>
+                        <a href="#">Charm</a>
+                        <a href="#">Kiềng</a>
+                        <a href="#">Lắc</a>
+                        <a href="#">Dây chuyền</a>
+                        <a href="#">Nhẫn nam</a>
+                        <a href="#">Nhẫn cưới</a>
+                        <a href="#">Bông tai</a>
+                    </div>
+                </div>
+                <!-- SINGLE SIDEBAR TAG END -->
+            </div>
+
+            <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+                <div class="right-all-product">
+                    <!-- PRODUCT-CATEGORY-HEADER START -->
+                    <div class="product-category-header">
+                       
+                    </div>
+                    <!-- PRODUCT-CATEGORY-HEADER END -->
+                    <div class="product-category-title">
+                        <!-- PRODUCT-CATEGORY-TITLE START -->
+                        <h1>
+                          Kết quả tìm kiếm theo từ khóa: <span style="text-transform:none">@ViewBag.keyword</span>
+                            <span class="count-product">Tìm thấy <span style="color:red;font-weight:bold">@ViewBag.soluongtimthay </span>  sản phẩm.</span>
+                        </h1>
+                        <!-- PRODUCT-CATEGORY-TITLE END -->
+                    </div>
+
+
+
+               
+                </div>
+                <!-- ALL GATEGORY-PRODUCT START -->
+
+
+                @if (ViewBag.soluongtimthay == 0)
+                {
+                    <p style="text-align:center;font-size:20px;font-weight:bold;color:red">Không tìm thấy kết quả nào phù hợp</p>
+                }
+                else
+                {
+                    <div class="all-gategory-product">
+                    <div class="row">
+
+
+                        <ul class="gategory-product">
+
+                            <!-- SINGLE ITEM START -->
+                            @{
+                                int i = 0;
+                            }
+                            @foreach (var item in Model)
+                            {
+                                i++;
+                                <li class="gategory-product-list col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                                    <div class="single-product-item">
+                                        <div class="product-image">
+                                            <a href="@Url.Action("ChiTietSanPham", "Display", new { id = item.ID_SANPHAM })"><img src="~/Content/image/@item.ANHBIA" alt="@item.TEN_SANPHAM" /></a>
+                                            <a href="@Url.Action("ChiTietSanPham", "Display", new { id = item.ID_SANPHAM })" class="new-mark-box">new</a>
+                                            <div class="overlay-content">
+                                                <ul>
+                                                    <li><a href="#" title="Quick view"><i class="fa fa-search"></i></a></li>
+                                                    <li><a href="#" title="Quick view"><i class="fa fa-shopping-cart"></i></a></li>
+                                                    <li><a href="#" title="Quick view"><i class="fa fa-retweet"></i></a></li>
+                                                    <li><a href="#" title="Quick view"><i class="fa fa-heart-o"></i></a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="product-info">
+                                            <div class="customar-comments-box">
+                                                <div class="rating-box">
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star-half-empty"></i>
+                                                </div>
+                                                <div class="review-box">
+                                                    <span>1 Review(s)</span>
+                                                </div>
+                                            </div>
+                                            <div style="height:40px">
+                                                <a href="@Url.Action("ChiTietSanPham", "Display", new { id = item.ID_SANPHAM })">@item.TEN_SANPHAM</a>
+                                            </div>
+
+                                            <div class="price-box">
+                                                <span class="price">@string.Format("{0:0,000}", item.DONGIA) VNĐ</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            }
+
+
+                            <!-- SINGLE ITEM END -->
+
+
+                        </ul>
+
+                    </div>
+                </div>
+                <div class="product-shooting-result product-shooting-result-border">
+                    <form action="#">
+                        <div class="btn compare-button">
+                            Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount
+                        </div>
+                    </form>
+                    <div class="showing-item">
+                        <span>@i sản phẩm đang được hiển thị</span>
+                    </div>
+                    <div class="showing-next-prev">
+
+                        <div class="phantrang">
+                            @{
+                                string s = Request.QueryString["keyword"];
+
+                            }
+                            @Html.PagedListPager(Model, page => Url.Action("TimKiem", new { keyword =s, page = page }))
+                        </div>
+
+                    </div>
+                </div>
+                }
+                
+
+
+                <!-- ALL GATEGORY-PRODUCT END -->
+                <!-- PRODUCT-SHOOTING-RESULT START -->
+                <!-- PRODUCT-SHOOTING-RESULT END -->
+            </div>
+
+
+        </div>
+    </div>
+</section>
+<!-- MAIN-CONTENT-SECTION END -->

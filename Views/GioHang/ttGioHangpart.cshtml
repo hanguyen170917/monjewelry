@@ -1,0 +1,74 @@
+﻿@using DA_Web.Models
+@model List<GioHang>
+<style>
+    a.cross-icon {
+        color: #434343;
+        font-size: 18px;
+        position: absolute;
+        right: 10px;
+        top: 20px;
+        cursor: pointer;
+        transition: all 0.3s ease 0s;
+    }
+
+        a.cross-icon:hover {
+            color: #FF4F4F;
+        }
+        .giohangrong{
+            text-align:center;
+            font-size:18px;
+            
+        }
+        .giohangrong img{
+            margin-top:20px
+        }
+</style>
+<a class="shop-link" href="@Url.Action("GioHang", "GioHang")" title="View my shopping cart">
+    <i class="fa fa-shopping-cart cart-icon"></i>
+    <b>My Cart</b>
+    <span class="ajax-cart-quantity">@ViewBag.TongSoLuong</span>
+</a>
+<div class="shipping-cart-overly" style="overflow:auto">
+    @if (Model == null || Model.Count == 0)
+    {
+        <div class="giohangrong">
+            <img src="~/Content/image/logogiohang.png" alt="Giỏ hàng rỗng" />
+            <p>Chưa có sản phẩm nào trong giỏ hàng</p>
+        </div>
+       
+    }
+    else
+    {
+        foreach (var item in Model)
+        {
+            <div class="shipping-item">
+
+                <a href="@Url.Action("XoaGioHang", "GioHang", new {@sID_SANPHAM = item.sID_SANPHAM })" class="cross-icon"><i class="fa fa-times-circle"></i></a>
+                <div class="shipping-item-image">
+                    <a href="@Url.Action("ChiTietSanPham", "Display", new {id = item.sID_SANPHAM })"><img src="~/Content/image/@item.sAnhBia" alt="@item.sTEN_SANPHAM" /></a> x @item.sSoLuong
+                </div>
+                <div class="shipping-item-text">
+
+                    <span class="pro-quality"><a href="@Url.Action("ChiTietSanPham", "Display", new {id = item.sID_SANPHAM })">@item.sTEN_SANPHAM</a></span>
+                    <p>@String.Format("{0:0,0}", item.sDonGia)</p>
+                </div>
+            </div>
+        }
+
+
+        <div class="shipping-total-bill">
+            <div class="cart-prices">
+                <span class="shipping-cost">0 VNĐ</span>
+                <span>Phí vận chuyển</span>
+            </div>
+            <div class="total-shipping-prices">
+                <span class="shipping-total">@String.Format("{0:0,0}", @ViewBag.TongTien) VNĐ</span>
+                <span>Total</span>
+            </div>
+        </div>
+        <div class="shipping-checkout-btn">
+            <a href="checkout.html">Thanh toán <i class="fa fa-chevron-right"></i></a>
+        </div>
+    }
+
+</div>

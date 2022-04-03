@@ -1,0 +1,33 @@
+﻿@model IEnumerable<DA_Web.Models.SANPHAM>
+@foreach(var item in Model.Where(m=>m.BANCHAY==true))
+{
+    
+
+<div class="item">
+    <div class="single-product-item">
+        <div class="product-image">
+            <a href="@Url.Action("ChiTietSanPham", "Display", new {id = item.ID_SANPHAM })"><img src="~/Content/image/@item.ANHBIA" alt="product-image" /></a>
+        </div>
+        <div class="product-info">
+            <div class="customar-comments-box">
+                <div class="rating-box">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                </div>
+                <div class="review-box">
+                    <span>1 Review(s)</span>
+                </div>
+            </div>
+            <a href="@Url.Action("ChiTietSanPham", "Display", new {id = item.ID_SANPHAM })" style="height:20px">@item.TEN_SANPHAM</a>
+            <div class="price-box">
+              
+                <span class="price" >@String.Format("{0:0,0}",@item.DONGIA) VNĐ</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+}

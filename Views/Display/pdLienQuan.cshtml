@@ -1,0 +1,24 @@
+﻿@model IEnumerable<DA_Web.Models.SANPHAM>
+<div class="single-product-right-sidebar">
+    <h2 class="left-title">Sản phẩm liên quan</h2>
+
+    <ul>
+        @{
+            Random rd = new Random();
+            int i;
+            i=rd.Next(7)+1;
+        }
+        @foreach (var item in Model.Where(m=>m.ID_LOAI == @i).Take(4))
+        {
+        <li>
+            <a href="@Url.Action("ChiTietSanPham", "Display", new {id = item.ID_SANPHAM })"><img src="~/Content/image/@item.ANHBIA" alt="@item.TEN_SANPHAM" title="@item.TEN_SANPHAM" /></a>
+            <div class="r-sidebar-pro-content">
+                <h5><a href="@Url.Action("ChiTietSanPham", "Display", new {id = item.ID_SANPHAM })">@item.TEN_SANPHAM</a></h5>
+                <p></p>
+            </div>
+        </li> 
+        }
+
+
+    </ul>
+</div>

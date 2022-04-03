@@ -1,0 +1,379 @@
+﻿@{
+    Layout = null;
+
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Home</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Favicon
+    ============================================ -->
+    <link rel="shortcut icon" type="image/x-icon" href="~/Content/img/favicon.png">
+
+    <!-- FONTS
+    ============================================ -->
+    <link href='http://fonts.googleapis.com/css?family=Oswald:400,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Bitter:400,700,400italic&amp;subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
+
+
+    <!-- animate CSS
+    ============================================ -->
+    <link rel="stylesheet" href="~/Content/css/animate.css">
+
+    <!-- FANCYBOX CSS
+    ============================================ -->
+    <link rel="stylesheet" href="~/Content/css/jquery.fancybox.css">
+
+    <!-- BXSLIDER CSS
+    ============================================ -->
+    <link rel="stylesheet" href="~/Content/css/jquery.bxslider.css">
+
+    <!-- MEANMENU CSS
+    ============================================ -->
+    <link rel="stylesheet" href="~/Content/css/meanmenu.min.css">
+
+    <!-- JQUERY-UI-SLIDER CSS
+    ============================================ -->
+    <link rel="stylesheet" href="~/Content/css/jquery-ui-slider.css">
+
+    <!-- NIVO SLIDER CSS
+    ============================================ -->
+    <link rel="stylesheet" href="~/Content/css/nivo-slider.css">
+
+    <!-- OWL CAROUSEL CSS
+    ============================================ -->
+    <link rel="stylesheet" href="~/Content/css/owl.carousel.css">
+
+    <!-- OWL CAROUSEL THEME CSS
+    ============================================ -->
+    <link rel="stylesheet" href="~/Content/css/owl.theme.css">
+
+    <!-- BOOTSTRAP CSS
+    ============================================ -->
+    <link rel="stylesheet" href="~/Content/css/bootstrap.min.css">
+    @*<link rel="stylesheet" href="~/Content/css/bootstrap.min.css">*@
+    <!-- FONT AWESOME CSS
+    ============================================ -->
+
+    
+
+    <link rel="stylesheet" href="~/Content/font-awesome.min.css">
+    <!-- NORMALIZE CSS
+    ============================================ -->
+    <link rel="stylesheet" href="~/Content/css/normalize.css">
+
+    <!-- MAIN CSS
+    ============================================ -->
+    <link rel="stylesheet" href="~/Content/css/main.css">
+
+    <!-- STYLE CSS
+    ============================================ -->
+    <link rel="stylesheet" href="~/Content/style.css">
+
+    <!-- RESPONSIVE CSS
+    ============================================ -->
+    <link rel="stylesheet" href="~/Content/css/responsive.css">
+
+    <!-- IE CSS
+    ============================================ -->
+    <link rel="stylesheet" href="~/Content/css/ie.css">
+
+    <!-- MODERNIZR JS
+    ============================================ -->
+    <script src="~/Scripts/js/vendor/modernizr-2.6.2.min.js"></script>
+
+
+</head>
+<body>
+   
+   <div class="top">
+   @Html.Action("Header","Display")
+   </div>
+    <div class="mid">
+        @RenderBody()
+    </div>
+
+        <!-- COMPANY-FACALITY START -->
+        <section class="company-facality">
+            <div class="container">
+                <div class="row">
+                    <div class="company-facality-row">
+                        <!-- SINGLE-FACALITY START -->
+                        <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                            <div class="single-facality">
+                                <div class="facality-icon">
+                                    <i class="fa fa-rocket"></i>
+                                </div>
+                                <div class="facality-text">
+                                    <h3 class="facality-heading-text">Giao hàng miễn phí</h3>
+                                    <span>Giao hàng toàn quốc</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- SINGLE-FACALITY END -->
+                        <!-- SINGLE-FACALITY START -->
+                        <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                            <div class="single-facality">
+                                <div class="facality-icon">
+                                    <i class="fa fa-umbrella"></i>
+                                </div>
+                                <div class="facality-text">
+                                    <h3 class="facality-heading-text">Hỗ trợ 24/7</h3>
+                                    <span>Hỗ trợ trực tuyến</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- SINGLE-FACALITY END -->
+                        <!-- SINGLE-FACALITY START -->
+                        <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                            <div class="single-facality">
+                                <div class="facality-icon">
+                                    <i class="fa fa-calendar"></i>
+                                </div>
+                                <div class="facality-text">
+                                    <h3 class="facality-heading-text">Thanh toán tiện lợi</h3>
+                                    <span>Thanh toán nhanh chóng</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- SINGLE-FACALITY END -->
+                        <!-- SINGLE-FACALITY START -->
+                        <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                            <div class="single-facality">
+                                <div class="facality-icon">
+                                    <i class="fa fa-refresh"></i>
+                                </div>
+                                <div class="facality-text">
+                                    <h3 class="facality-heading-text">Đổi trả trong 30 ngày</h3>
+                                    <span>Hoàn tiền nếu sản phẩm giả</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- SINGLE-FACALITY END -->
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- COMPANY-FACALITY END -->
+
+        <!-- FOOTER-TOP-AREA START -->
+        <section class="footer-top-area">
+            <div class="container">
+                <div class="footer-top-container">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12">
+                            <!-- FOOTER-TOP-LEFT START -->
+                            <div class="footer-top-left">
+                                <!-- NEWSLETTER-AREA START -->
+                                <div class="newsletter-area">
+                                    <h2>Đăng ký nhận tin tức</h2>
+                                    <p>Đăng ký danh sách gửi thư của chúng tôi để nhận thông tin cập nhật về hàng mới, 
+                                        ưu đãi đặc biệt và thông tin giảm giá khác.
+                                    </p>
+                                    <form action="#">
+                                        <div class="form-group newsletter-form-group">
+                                            <input type="text" class="form-control newsletter-form" placeholder="Nhập Email của bạn">
+                                            <input type="submit" class="newsletter-btn" name="submit" value="Đăng ký" />
+                                        </div>
+                                    </form>
+                                </div>
+                                <!-- NEWSLETTER-AREA END -->
+                                <!-- ABOUT-US-AREA START -->
+                                <div class="about-us-area">
+                                    <h2 style="color:#fff">Về chúng tôi</h2>
+                                    <p>Với mong muốn đưa trang sức tới mọi người, truyền tải, nhắn gửi yêu thương, 
+                                         Mon Jewelry khởi nguồn tiếp bước thực hiện những mong muốn đó 
+                                         thông qua chuỗi giá trị từ trang sức.</p>
+                                </div>
+                                <!-- ABOUT-US-AREA END -->                               
+                            </div>
+                            <!-- FOOTER-TOP-LEFT END -->
+                        </div>
+                        <div class="col-lg-9 col-md-9 col-sm-8 col-xs-12">
+                            <!-- FOOTER-TOP-RIGHT-1 START -->
+                            <div class="footer-top-right-1">
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 hidden-sm">
+                                        <!-- STATICBLOCK START -->
+                                        <div class="staticblock">
+                                            <h2>tầm nhìn và sứ mệnh</h2>
+                                            <p>Trở thành thương hiệu trang sức, trang sức cưới hàng đầu Đông Nam Á. 
+                                            Dùng những thiết kế tinh tế, giảm đi giá trị về vật chất của trang sức,<br /> 
+                                            để mang đến cho người Việt một cái nhìn hoàn toàn mới về trang sức. 
+                                            Biến trang sức thành thứ không còn xa xỉ trong tâm trí người Việt Nam</p> 
+                                        </div> 
+                                        <!-- STATICBLOCK END -->
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                                        <!-- STORE-INFORMATION START -->
+                                        <div class="Store-Information">
+                                            <h2>Thông tin về cửa hàng</h2>
+                                            <ul>
+                                                <li>
+                                                    <div class="info-lefticon">
+                                                        <i class="fa fa-map-marker"></i>
+                                                    </div>
+                                                    <div class="info-text">
+                                                        <p>678, Nguyễn Đình Chiểu, phường 3, quận 3, TP.HCM </p>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="info-lefticon">
+                                                        <i class="fa fa-phone"></i>
+                                                    </div>
+                                                    <div class="info-text call-lh">
+                                                        <p>Liên hệ với chúng tôi : 0909-456-654</p>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="info-lefticon">
+                                                        <i class="fa fa-envelope-o"></i>
+                                                    </div>
+                                                    <div class="info-text call-lh">
+                                                        <p>Email : monjewelry@gmail.com</p>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <!-- STORE-INFORMATION END -->
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                                        <!-- FACEBOOK-AREA START -->
+                                        <div class="google-map-area">
+                                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.56103890966!2d106.67811591432677!3d10.768274162289831!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f1f63d1f57b%3A0x43ad7ee71d19c5fa!2zNjc4IE5ndXnhu4VuIMSQw6xuaCBDaGnhu4N1LCBQaMaw4budbmcgMywgUXXhuq1uIDMsIFRow6BuaCBwaOG7kSBI4buTIENow60gTWluaCwgVmnhu4d0IE5hbQ!5e0!3m2!1svi!2s!4v1619489045428!5m2!1svi!2s" 
+                                                         width="100%" height="300" frameborder="0" style="border:0;margin-top: 10px;" allowfullscreen=""></iframe>
+                                        </div>
+                                        <!-- FACEBOOK-AREA END -->
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- FOOTER-TOP-RIGHT-1 END -->
+                            <div class="footer-top-right-2">
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                        <!-- FOTTER-MENU-WIDGET START -->
+                                        <div class="fotter-menu-widget">
+                                            <div class="single-f-widget">
+                                                <h2>Hỗ trợ</h2>
+                                                <ul>
+                                                    <li><a href="shop-gird.html"><i class="fa fa-angle-double-right"></i>Hướng Dẫn Mua Hàng </a></li>
+                                                    <li><a href="shop-gird.html"><i class="fa fa-angle-double-right"></i>Vận Chuyển - Thanh Toán</a></li>
+                                                    <li><a href="shop-gird.html"><i class="fa fa-angle-double-right"></i>Chính Sách Đổi Trả</a></li>
+                                                    <li><a href="shop-gird.html"><i class="fa fa-angle-double-right"></i>Chính Sách Bảo Mật</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <!-- FOTTER-MENU-WIDGET END -->
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
+                                        <!-- FOTTER-MENU-WIDGET START -->
+                                        <div class="fotter-menu-widget">
+                                            <div class="single-f-widget">
+                                                <h2>Thông tin</h2>
+                                                <ul>
+                                                    <li><a href="#"><i class="fa fa-angle-double-right"></i>Sản phẩm yêu thích</a></li>
+                                                    <li><a href="#"><i class="fa fa-angle-double-right"></i>Câu hỏi thường gặp</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <!-- FOTTER-MENU-WIDGET END -->
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                        <!-- FOTTER-MENU-WIDGET START -->
+                                        <div class="fotter-menu-widget">
+                                            <div class="single-f-widget">
+                                                <h2>Hỗ trợ thanh toán</h2>
+                                                <img src="~/Content/img/hotrothanhtoan.png" style="margin-left:-40px" />
+                                            </div>
+                                        </div>
+                                        <!-- FOTTER-MENU-WIDGET END -->
+                                    </div>                                   
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>   
+        <!-- FOOTER-TOP-AREA END -->
+        <!-- COPYRIGHT-AREA START -->
+        <footer class="copyright-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="copy-right">
+                            <address>Copyright © 2021 Design by Thu Hà</address>
+                        </div>
+                        <div class="scroll-to-top">
+                            <a href="#" class="bstore-scrollertop"><i class="fa fa-angle-double-up"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+
+            <!-- jquery js -->
+            <script src="~/Scripts/js/vendor/jquery-1.11.3.min.js"></script>
+
+            <!-- fancybox js -->
+            <script src="~/Scripts/js/jquery.fancybox.js"></script>
+
+            <!-- bxslider js -->
+            <script src="~/Scripts/js/jquery.bxslider.min.js"></script>
+
+            <!-- meanmenu js -->
+            <script src="~/Scripts/js/jquery.meanmenu.js"></script>
+
+            <!-- owl carousel js -->
+            <script src="~/Scripts/js/owl.carousel.min.js"></script>
+
+            <!-- nivo slider js -->
+            <script src="~/Scripts/js/jquery.nivo.slider.js"></script>
+
+            <!-- jqueryui js -->
+            <script src="~/Scripts/js/jqueryui.js"></script>
+
+            <!-- bootstrap js -->
+            <script src="~/Scripts/js/bootstrap.min.js"></script>
+
+            <!-- wow js -->
+            <script src="~/Scripts/js/wow.js"></script>
+            <script>
+                new WOW().init();
+            </script>
+            <!-- Google Map js -->
+            <script src="https://maps.googleapis.com/maps/api/js"></script>
+            <script>
+                function initialize() {
+                    var mapOptions = {
+                        zoom: 8,
+                        scrollwheel: false,
+                        center: new google.maps.LatLng(35.149868, -90.046678)
+                    };
+                    var map = new google.maps.Map(document.getElementById('googleMap'),
+                        mapOptions);
+                    var marker = new google.maps.Marker({
+                        position: map.getCenter(),
+                        map: map
+                    });
+
+                }
+                google.maps.event.addDomListener(window, 'load', initialize);
+            </script>
+            <!-- main js -->
+            <script src="~/Scripts/js/main.js"></script>
+
+            <script src="~/Scripts/jquery-ui.js"></script>
+            <script src="~/Scripts/controller/baseController.js"></script>
+</body>
+</html>

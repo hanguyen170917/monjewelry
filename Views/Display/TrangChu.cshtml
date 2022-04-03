@@ -1,0 +1,354 @@
+﻿@model IEnumerable<DA_Web.ViewModel.TrangsucViewModel>
+
+    @{
+        ViewBag.Title = "TrangChu";
+        Layout = "~/Views/Shared/_layout_display.cshtml";
+
+    }
+
+    <!-- MAIN-CONTENT-SECTION START -->
+
+    <section class="main-content-section">
+
+        <div class="container">
+            <div class="row">
+                <!-- MAIN-SLIDER-AREA START -->
+                <div class="main-slider-area">
+                    <!-- SLIDER-AREA START -->
+                    <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+                        <div class="slider-area">
+                            <div id="wrapper">
+                                <div class="slider-wrapper">
+
+                                    <div id="mainSlider" class="nivoSlider">
+
+                                        <img src="~/Content/image/slideshow1.jpg" alt="main slider" title="#htmlcaption" />
+                                        <img src="~/Content/image/slideshow2.jpg" alt="main slider" title="#htmlcaption2" />
+
+                                    </div>
+
+                                    <div id="htmlcaption" class="nivo-html-caption slider-caption">
+                                        <div class="slider-progress"></div>
+                                        <div class="slider-cap-text slider-text1">
+                                            <div class="d-table-cell">
+                                                <h2 class="animated bounceInDown">6.380.000 VNĐ</h2>
+                                                <p class="animated bounceInUp" style="color: #302b2a; font-weight: bold; font-size: 18px;">Thiết kế đặc sắc ở phần ổ đá lớn, cầu kỳ với 1 viên đá chủ ở giữa và dải đá tấm xếp hình tứ giác bao quanh, tạo cảm giác sang trọng và quyền lực</p>
+                                                <a class="wow zoomInDown" data-wow-duration="1s" data-wow-delay="1s" href="#">Read More <i class="fa fa-caret-right"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="htmlcaption2" class="nivo-html-caption slider-caption">
+                                        <div class="slider-progress"></div>
+                                        <div class="slider-cap-text slider-text2">
+                                            <div class="d-table-cell">
+                                                <h2 class="animated bounceInDown">11.664.000 VNĐ</h2>
+                                                <p class="animated bounceInUp" style="color: #302b2a; font-weight: bold; font-size: 18px">Nhẫn cưới Beyond heart NC759 thiết kế chủ đạo là các đường vắt chéo xếp tầng, tạo nên nhiều tầng lớp nổi bật ở mặt nhẫn kèm theo đá chủ sáng lấp lánh đính giữa trung tâm. Nhẫn nữ yểu điệu với được nạm thêm dải đá ở 1 bên viền nhẫn.</p>
+                                                <a class="wow zoomInDown" data-wow-duration="1s" data-wow-delay="1s" href="#">Read More <i class="fa fa-caret-right"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- SLIDER-AREA END -->
+                    <!-- SLIDER-RIGHT START -->
+                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                        <div class="slider-right zoom-img m-top">
+                            <a href="#">
+                                <img class="img-responsive" src="~/Content/image/slideshow3.jpg" alt="sidebar left" style="height:471px" />
+
+                            </a>
+
+                        </div>
+                    </div>
+                    <!-- SLIDER-RIGHT END -->
+                </div>
+                <!-- MAIN-SLIDER-AREA END -->
+            </div>
+            <!-- TOW-COLUMN-PRODUCT START -->
+            <div class="row tow-column-product">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <!-- NEW-PRODUCT-AREA START -->
+                    <div class="new-product-area">
+                        <div class="left-title-area">
+                            <h2 class="left-title">Sản phẩm bán chạy</h2>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="row">
+                                    <!-- NEW-PRO-CAROUSEL START -->
+                                    <div class="new-pro-carousel">
+                                        <!-- NEW-PRODUCT-SINGLE-ITEM START -->
+                                      
+                                        @foreach (var item in Model.Where(m=>m.BANCHAY ==true))
+                                        {
+                                            <div class="item">
+                                                <div class="new-product">
+                                                    <div class="single-product-item">
+                                                        <div class="product-image">
+                                                            <a href="@Url.Action("ChiTietSanPham", "Display", new {id = item.ID_SANPHAM})"><img src="~/Content/image/@item.ANHBIA" alt="@item.TEN_SANPHAM" class="thaydoi" /></a>
+                                                            <a href="#" class="new-mark-box">Hot</a>
+                                                            <div class="overlay-content">
+                                                                <ul>
+                                                                    
+                                                                    <li><a href="#" title="Quick view"><i class="fa fa-shopping-cart"></i></a></li>
+                                                                    <li><a href="#" title="Quick view"><i class="fa fa-retweet"></i></a></li>
+                                                                    <li><a href="#" title="Quick view"><i class="fa fa-heart-o"></i></a></li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                        <div class="product-info">
+                                                            <div class="customar-comments-box">
+                                                                <div class="rating-box">
+                                                                    <i class="fa fa-star"></i>
+                                                                    <i class="fa fa-star"></i>
+                                                                    <i class="fa fa-star"></i>
+                                                                    <i class="fa fa-star"></i>
+                                                                    <i class="fa fa-star"></i>
+                                                                    @*<i class="fa fa-star-half-empty"></i>
+                                                                        <i class="fa fa-star-half-empty"></i>*@
+                                                                </div>
+                                                                <div class="review-box">
+                                                                    <span>1 Review (s)</span>
+                                                                </div>
+                                                            </div>
+                                                            <a href="@Url.Action("ChiTietSanPham", "Display", new {id = item.ID_SANPHAM })">@item.TEN_SANPHAM</a>
+                                                            <div class="price-box">
+                                                                <span class="price">@string.Format("{0:0,000}", item.DONGIA) VNĐ</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        }
+
+
+                                    </div>
+                                    <!-- NEW-PRO-CAROUSEL END -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- NEW-PRODUCT-AREA END -->
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <!-- SALE-PRODUCTS START -->
+                    <div class="Sale-Products">
+                        <div class="left-title-area">
+                            <h2 class="left-title">SẢN PHẨM MỚI</h2>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="row">
+                                    <!-- SALE-CAROUSEL START -->
+                                    <div class="sale-carousel">
+                                        <!-- SALE-PRODUCTS-SINGLE-ITEM START -->
+                                        @{
+                                            Random rd = new Random();
+                                            int a;
+                                        }
+                                        @foreach (var item in Model.OrderByDescending(m => m.NGAYNHAP).Take(10).ToList())
+                                        {
+                                            a = rd.Next(3);
+                                            <div class="item">
+                                                <div class="new-product">
+                                                    <div class="single-product-item">
+                                                        <div class="product-image">
+                                                            <a href="@Url.Action("ChiTietSanPham", "Display", new {id = item.ID_SANPHAM })"><img src="~/Content/image/@item.ANHBIA" alt="product-image" class="thaydoi" /></a>
+                                                            <a href="#" class="new-mark-box">New</a>
+                                                            <div class="overlay-content">
+                                                                <ul>
+                                                                   
+                                                                    <li><a href="#" title="Quick view"><i class="fa fa-shopping-cart"></i></a></li>
+                                                                    <li><a href="#" title="Quick view"><i class="fa fa-retweet"></i></a></li>
+                                                                    <li><a href="#" title="Quick view"><i class="fa fa-heart-o"></i></a></li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                        <div class="product-info">
+                                                            <div class="customar-comments-box">
+                                                                <div class="rating-box">
+                                                                    @if (a == 0)
+                                                                    {
+                                                                        <i class="fa fa-star"></i>
+                                                                        <i class="fa fa-star"></i>
+                                                                        <i class="fa fa-star"></i>
+                                                                        <i class="fa fa-star-half-empty"></i>
+                                                                        <i class="fa fa-star-half-empty"></i>
+                                                                    }
+                                                                    else if (a == 1)
+                                                                    {
+                                                                        <i class="fa fa-star"></i>
+                                                                        <i class="fa fa-star"></i>
+                                                                        <i class="fa fa-star"></i>
+                                                                        <i class="fa fa-star"></i>
+                                                                        <i class="fa fa-star-half-empty"></i>
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                        <i class="fa fa-star"></i>
+                                                                        <i class="fa fa-star"></i>
+                                                                        <i class="fa fa-star"></i>
+                                                                        <i class="fa fa-star"></i>
+                                                                        <i class="fa fa-star"></i>
+                                                                    }
+                                                                </div>
+                                                                <div class="review-box">
+                                                                    <span>1 Review (s)</span>
+                                                                </div>
+                                                            </div>
+                                                            <a href="@Url.Action("ChiTietSanPham", "Display", new {id = item.ID_SANPHAM })">@item.TEN_SANPHAM</a>
+                                                            <div class="price-box"> 
+                                                                @{
+                                                                             
+                                                                }
+                                                                <span class="price">@string.Format("{0:0,000}", item.DONGIA) VNĐ</span>
+                                                                @*<span class="old-price">$30.51</span>*@
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        }
+
+
+                                    </div>
+                                    <!-- SALE-CAROUSEL END -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- SALE-PRODUCTS END -->
+                </div>
+            </div>
+            <!-- TOW-COLUMN-PRODUCT END -->
+            <div class="row">
+                <!-- ADD-TWO-BY-ONE-COLUMN START -->
+                <div class="add-two-by-one-column">
+                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                        <div class="tow-column-add zoom-img">
+                            <a href="#"><img src="~/Content/image/banner_1.gif" alt="banner" style="height: 280px;width:100%" /></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                        <div class="one-column-add zoom-img">
+                            <a href="#"><img src="~/Content/image/banner_2.jpg" alt="shope-add" style="height: 280px;width:100%" /></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- ADD-TWO-BY-ONE-COLUMN END -->
+            </div>
+            <div class="row">
+                <!-- FEATURED-PRODUCTS-AREA START -->
+                <div class="featured-products-area">
+                    <div class="center-title-area">
+                        <h2 class="center-title">SANG TRỌNG - QUÝ PHÁI</h2>
+                    </div>
+                    <div class="col-xs-12">
+                        <div class="row">
+                            <!-- FEARTURED-CAROUSEL START -->
+                            <div class="feartured-carousel">
+                                <!-- SINGLE-PRODUCT-ITEM START -->
+                                @foreach (var item in Model.OrderByDescending(m => m.TEN_SANPHAM).Take(15).ToList())
+                                {
+
+
+                                    a = rd.Next(3);
+                                    <div class="item">
+                                        <div class="single-product-item">
+                                            <div class="product-image">
+                                                <a href="@Url.Action("ChiTietSanPham", "Display", new {id = item.ID_SANPHAM })"><img src="~/Content/image/@item.ANHBIA" alt="product-image" class="thaydoi" /></a>
+                                                <a href="#" class="new-mark-box">new</a>
+                                                <div class="overlay-content">
+                                                    <ul>
+                                                        
+                                                        <li><a href="#" title="Quick view"><i class="fa fa-shopping-cart"></i></a></li>
+                                                        <li><a href="#" title="Quick view"><i class="fa fa-retweet"></i></a></li>
+                                                        <li><a href="#" title="Quick view"><i class="fa fa-heart-o"></i></a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="product-info">
+                                                <div class="customar-comments-box">
+                                                    <div class="rating-box">
+                                                        @if (a == 0)
+                                                        {
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star-half-empty"></i>
+                                                            <i class="fa fa-star-half-empty"></i>
+                                                        }
+                                                        else if (a == 1)
+                                                        {
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star-half-empty"></i>
+                                                        }
+                                                        else
+                                                        {
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star"></i>
+                                                        }
+
+
+                                                    </div>
+                                                    <div class="review-box">
+                                                        <span>1 Review (s)</span>
+                                                    </div>
+                                                </div>
+                                                <a href="@Url.Action("ChiTietSanPham", "Display", new {id = item.ID_SANPHAM })">@item.TEN_SANPHAM</a>
+                                                <div class="price-box">
+                                                    <span class="price">@string.Format("{0:0,000}", item.DONGIA) VNĐ</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+
+                            </div>
+                            <!-- FEARTURED-CAROUSEL END -->
+                        </div>
+                    </div>
+                </div>
+                <!-- FEATURED-PRODUCTS-AREA END -->
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <!-- TAB-BG-PRODUCT-AREA START -->
+                    
+                    <!-- TAB-BG-PRODUCT-AREA END -->
+                </div>
+            </div>
+          
+            <div class="row">
+                <!-- IMAGE-ADD-AREA START -->
+                <div class="image-add-area">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <!-- ONEHALF-ADD START -->
+                        <div class="onehalf-add-shope zoom-img">
+                            <a href="#"><img src="~/Content/image/banner_3.jpg" alt="shope-add" style="height:200px; width:100%" /></a>
+                        </div>
+                        <!-- ONEHALF-ADD END -->
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <!-- ONEHALF-ADD START -->
+                        <div class="onehalf-add-shope zoom-img">
+                            <a href="#"><img src="~/Content/image/banner_4.jpg" alt="shope-add" style="height: 200px; width: 100%" /></a>
+                        </div>
+                        <!-- ONEHALF-ADD END -->
+                    </div>
+                </div>
+                <!-- IMAGE-ADD-AREA END -->
+            </div>
+        </div>
+    </section>
+   
+

@@ -1,0 +1,140 @@
+﻿
+@{
+    ViewBag.Title = "CheckLogin";
+    Layout = "~/Views/Shared/_layout_display.cshtml";
+}
+<style>
+    .dn {
+        width: 400px;
+        margin: auto;
+        margin-top: 150px;
+    }
+
+        .dn h3 {
+            text-align: center;
+        }
+
+        .dn label {
+            margin-left: 45px;
+        }
+
+    .submit-button {
+        text-align: center;
+    }
+
+    .forget-password {
+        text-align: center;
+    }
+
+    .main-btn {
+        padding: 15px;
+        border-radius: 10px;
+        text-align: center;
+    }
+
+    .loi {
+        float: left;
+        padding: 8px 5px;
+        font-size: 20px;
+        color: red;
+    }
+
+    .input-feild {
+        float: left;
+        margin-left: 45px;
+    }
+</style>
+<section class="main-content-section" >
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <!-- BSTORE-BREADCRUMB START -->
+                <div class="bstore-breadcrumb">
+                    <a href="index.html">HOME</a>
+                    <span><i class="fa fa-caret-right	"></i></span>
+                    <span>Đăng nhập</span>
+                </div>
+                <!-- BSTORE-BREADCRUMB END -->
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <h2 class="page-title">Đăng nhập</h2>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <!-- SHOPING-CART-MENU START -->
+                <div class="shoping-cart-menu">
+                    <ul class="step">
+                        <li class="step-todo first step-done">
+                            <span>01. Giỏ hàng</span>
+                        </li>
+                        <li class="step-current second">
+                            <span>02. Đăng nhập</span>
+                        </li>
+                        <li class="step-todo third">
+                            <span>03. Thông tin</span>
+                        </li>
+                        <li class="step-todo last" id="step_end">
+                            <span>04. Chuyển đơn hàng</span>
+                        </li>
+                      
+                    </ul>
+                </div>
+                <!-- SHOPING-CART-MENU END -->
+            </div>
+         
+            <div class="primari-box registered-account dn">
+                <form class="new-account-box" id="accountLogin" method="post" action="#">
+                    <h3 class="box-subheading">Đăng nhập</h3>
+                    @using (Html.BeginForm())
+                    {
+                        @Html.ValidationSummary(true)
+                        <div class="form-content">
+                            <div class="form-group primary-form-group">
+                                <label for="loginemail">Tài khoản</label>
+                                @*<input type="text" value="" name="email" id="loginemail" class="">*@
+                                @Html.TextBox("TenDN", null, new { @class = "form-control input-feild" })
+                                <span class="loi">@ViewData["Loi1"]</span>
+                            </div>
+                            <div class="form-group primary-form-group">
+                                <label for="password">Mật khẩu</label>
+                                @*<input type="password" value="" name="password" id="password" class="form-control input-feild">*@
+                                @Html.Password("MatKhau", null, new { @class = "form-control input-feild" })
+                                <span class="loi">@ViewData["Loi2"]</span>
+                            </div>
+                            <div class="forget-password">
+                                <p><a href="@Url.Action("DangKy","NguoiDung")">Chưa có tài khoản? Đăng ký</a></p>
+                            </div>
+                            <div>
+                                <h4 style="color:red;text-align:center">@ViewBag.Thongbao</h4>
+                            </div>
+
+                            <div class="submit-button">
+
+                                <input type="submit" value="Đăng nhập" id="signinCreate" class="btn main-btn" />
+
+                            </div>
+
+
+                        </div>
+
+                    }
+
+                </form>
+                @if (ViewBag.Mess != null)
+                {
+                    <script type="text/javascript">
+                        window.onload = function () {
+                            alert("@Html.Raw(ViewBag.Mess)");
+                           
+                        };
+                    </script>
+                }
+
+
+
+            </div>
+        </div>
+    </div>
+</section>
+

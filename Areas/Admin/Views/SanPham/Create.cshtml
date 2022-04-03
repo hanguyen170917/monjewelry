@@ -1,0 +1,172 @@
+﻿@model DA_Web.Models.SANPHAM
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/layout_admin.cshtml";
+}
+<style>
+    .back {
+        text-decoration: none;
+        padding: 10px 20px;
+        background-color: black;
+        font-weight: bold;
+        color: white;
+        margin-left: 30px;
+    }
+
+        .back:hover {
+            background-color: #d3c4c4;
+            color: black;
+            text-decoration: none;
+        }
+
+    .text input {
+        width: 260px;
+    }
+</style>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>THÊM MỚI SẢN PHẨM</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+        <div class="content" style="width:1000px;margin:auto">
+
+
+            <div class="form-group">
+                <div class="row">
+
+                    <div class="col-md-6 text">
+                        @Html.Label("Tên sản phẩm", new { @class = "control-label col-md-4" })
+                        @Html.TextBoxFor(model => model.TEN_SANPHAM)
+                        <span style="color:red">@ViewBag.Loi1</span>
+                    </div>
+
+                    <div class="col-md-6 text">
+                        @Html.Label("Đơn giá", new { @class = "control-label col-md-4" })
+                        @Html.TextBoxFor(model => model.DONGIA)
+                        <span style="color:red">  @ViewBag.Loi2 </span>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="form-group">
+                <div class="row">
+
+                    <div class="col-md-6 text">
+                        @Html.Label("Mô tả", new { @class = "control-label col-md-4" })
+                        @Html.TextAreaFor(model => model.MOTA)                      
+
+                        <span style="color:red">  @ViewBag.Loi3 </span>
+                    </div>
+
+                    <div class="col-md-6 text">
+                        @Html.Label("Số lượng", new { @class = "control-label col-md-4" })
+                        @Html.EditorFor(model => model.SOLUONGTON)
+                        <span style="color:red">   @ViewBag.Loi4 </span>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="form-group">
+                <div class="row">
+
+                    <div class="col-md-6 text">
+                        @Html.Label("Tên loại", new { @class = "control-label col-md-4" })
+                        @Html.DropDownListFor(model => model.ID_LOAI, (IEnumerable<SelectListItem>)ViewBag.Loai)
+                        @Html.ValidationMessageFor(model => model.ID_LOAI)
+                    </div>
+
+                    <div class="col-md-6 text">
+                        @Html.Label("Nhà cung cấp", new { @class = "control-label col-md-4" })
+                        @Html.DropDownListFor(model => model.ID_NCC, (IEnumerable<SelectListItem>)ViewBag.NhaCC)
+                        @Html.ValidationMessageFor(model => model.ID_NCC)
+                    </div> 
+                </div>
+
+            </div>
+
+            <div class="form-group">
+                <div class="row">
+
+                    <div class="col-md-6 ">
+                        @Html.Label("Chọn hình ảnh", new { @class = "control-label col-md-4" })
+                        @Html.TextBoxFor(model => model.ANHBIA, new { @name = "picture", @id = "picture" })
+
+                        <input type="file" id="fileUpload" name="fileUpload" style="display:none" />
+                        <input type="button" value="..." id="btnUpload" />
+                        <span style="color:red">    @ViewBag.Loi6 </span>
+                    </div>
+
+                    <div class="col-md-6 text">
+                        @Html.Label("Bán chạy", new { @class = "control-label col-md-4" })
+                        @Html.EditorFor(model => model.BANCHAY)
+
+                    </div>
+                </div>
+
+            </div>
+
+            @*-----------------*@
+
+            <div class="form-group" style="margin-top:15px">
+                <div class="col-md-offset-2 col-md-10" style="text-align:center;">
+                    <input type="submit" value="Thêm mới" class="btn btn-success" />
+                </div>
+            </div>
+        </div>
+    </div>
+}
+@section upload
+{
+    <script>
+        $(function () {
+
+            $('#btnUpload').click(function () {
+                $('#fileUpload').trigger('click');
+            });
+            $('#fileUpload').change(function () {
+                if (window.FormData !== undefined) {
+                    var fileUpload = $('#fileUpload').get(0);
+                    var files = fileUpload.files;
+                    var formData = new FormData();
+                    formData.append('file', files[0]);
+                    $.ajax({
+                        type: 'POST',
+                        url: '/Admin/SanPham/ProcessUpload',
+                        contentType: false,
+                        processData: false,
+                        data: formData,
+                        success: function (urlImage) {
+
+                            $('#picture').val(urlImage);
+                        },
+                        error: function (err) {
+                            alert('Có lỗi khi upload ảnh: ' + err.statusText);
+                        }
+                    });
+                }
+            });
+        });
+
+
+    </script>
+}
+
+@if (ViewBag.MessError != null)
+{
+    <script type="text/javascript">
+        window.onload = function () {
+            alert("@Html.Raw(ViewBag.MessError)");
+        };
+    </script>
+}
+
